@@ -83,16 +83,26 @@ class Game {
     }
 
     if(keyIsDown(UP_ARROW) && player.index !== null){
+      player.speed +=1
       player.distance +=10
+      if(player.speed >= 100){
+        player.distance+=5
+        console.log("showerror");
+      }
       player.update();
     }
+    console.log(player.speed);
 
     if(keyIsDown(DOWN_ARROW) && player.index !== null){
+      player.speed = 0 ;
+      console.log("showerror");
+      console.log(player.speed);
+
       player.distance -=10
       player.update();
     }
 
-    
+   // console.log(player.distance);
 
     if(player.distance > 3860){
       gameState = 2;
