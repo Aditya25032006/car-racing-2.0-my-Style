@@ -42,6 +42,7 @@ class Game {
     form.hide();
     
     Player.getPlayerInfo();
+    player.getCarsAtEnd();
     
     if(allPlayers !== undefined){
       background(rgb(198,135,103));
@@ -76,36 +77,39 @@ class Game {
           camera.position.y = cars[index-1].y;
         }
        
-        //textSize(15);
-        //text(allPlayers[plr].name + ": " + allPlayers[plr].distance, 120,display_position)
+        
       }
 
     }
 
     if(keyIsDown(UP_ARROW) && player.index !== null){
-      player.speed +=1
+      player.speed +=4
       player.distance +=10
-      if(player.speed >= 100){
-        player.distance+=5
-        console.log("showerror");
+      console.log("forward");
+      if(player.speed >= 180){
+        player.distance+=16
+       
       }
       player.update();
     }
-    console.log(player.speed);
+    console.log("player.speed : ",player.speed);
 
     if(keyIsDown(DOWN_ARROW) && player.index !== null){
       player.speed = 0 ;
-      console.log("showerror");
-      console.log(player.speed);
+      console.log("backward",player.speed);
 
       player.distance -=10
       player.update();
     }
 
-   // console.log(player.distance);
+    
 
-    if(player.distance > 3860){
+    console.log("player.distance : ",player.distance);
+
+    if(player.distance > 5170){
       gameState = 2;
+      player.rank += 1
+      Player.updateCarsAtEnd(player.rank)
     }
    
     drawSprites();
@@ -113,5 +117,6 @@ class Game {
 
   end(){
     console.log("Game Ended");
+    console.log(player.rank);
   }
 }
