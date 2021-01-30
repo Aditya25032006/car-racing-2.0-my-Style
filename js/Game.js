@@ -106,7 +106,7 @@ class Game {
 
     console.log("player.distance : ",player.distance);
 
-    if(player.distance > 5170){
+    if(player.distance > 4340){
       gameState = 2;
       player.rank += 1
       Player.updateCarsAtEnd(player.rank)
