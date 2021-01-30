@@ -118,5 +118,7 @@ class Game {
   end(){
     console.log("Game Ended");
     console.log(player.rank);
+        console.log(player.distance);
+
   }
 }
